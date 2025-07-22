@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hello World Copy Trick</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 50px;
+      font-size: 24px;
+    }
+  </style>
+</head>
+<body>
+  <div id="content">Hello World</div>
+
+  <script>
+    document.addEventListener('copy', function (e) {
+      e.preventDefault(); // Prevent default copy behavior
+      const fakeText = 'chaman banaya';
+      if (e.clipboardData) {
+        e.clipboardData.setData('text/plain', fakeText);
+      } else if (window.clipboardData) {
+        window.clipboardData.setData('Text', fakeText); // For IE (if needed)
+      }
+    });
+  </script>
+</body>
+</html>
